@@ -43,7 +43,7 @@ class Bild2(QMainWindow):
         print(self.ui)
         #self.setGeometry(200, 200, 300, 300)
         self.resize(int(self.plot.getPaperX()), self.plot.getPaperY()+30)
-        self.setWindowTitle("Bild")
+        self.setWindowTitle("Bild2 Landningskrafter")
         
         self.ui.verticalLayout.addWidget(self.plot)
         
@@ -63,6 +63,8 @@ class Bild2(QMainWindow):
         self.plot.drawPoint(self.parent.kmh, self.parent.drag,  QColor( 0,0,255 ))
         self.plot.drawPointR(200, 20000)
         self.plot.drawPointR(500, 40000)
+        self.plot.drawRect(450,180, 100,20, QColor( 200,200,200 ))
+        self.plot.drawText(str(int(self.parent.mass))+" kg", 450,190, QColor( 0,0,255 ))
         
         self.plot.redraw()
         pass

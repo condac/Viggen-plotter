@@ -168,10 +168,22 @@ class BitPlot(QWidget):
         y = self.yscale_start_y - mapValue(y, self.yscale_min, self.yscale_max, 0, self.yscale_start_y-self.yscale_end_y)
         x = int(x)
         y = int(y)
-        print("ritar x", x, "y", y, "papper", self.paperY, self.yscale_start_y)
+        #print("ritar x", x, "y", y, "papper", self.paperY, self.yscale_start_y)
         self.painter.drawLine(x, y, x+1, y+1)
         
         #self.painter.drawLine(0, self.yscale_start_y, 0+1, self.paperY+1)
+        self.painter.end()
+    
+    def drawText(self,text, x, y, color1):
+        self.painter.begin(self.buffer)
+        self.painter.setPen(QPen(color1, 4, Qt.SolidLine))
+        self.painter.drawText(int(x), int(y), str(text) )
+        self.painter.end()
+        
+    def drawRect(self, x, y, width, height, color1):
+        self.painter.begin(self.buffer)
+        self.painter.setPen(QPen(color1, 1, Qt.SolidLine))
+        self.painter.fillRect(int(x), int(y),int(width), int(height), color1)
         self.painter.end()
         
     def newPaper(self):

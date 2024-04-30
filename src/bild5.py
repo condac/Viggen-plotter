@@ -43,7 +43,7 @@ class Bild(QMainWindow):
         print(self.ui)
         #self.setGeometry(200, 200, 300, 300)
         self.resize(int(self.plot.getPaperX()), self.plot.getPaperY()+30)
-        self.setWindowTitle("Bild")
+        self.setWindowTitle("Bild5")
         
         self.ui.verticalLayout.addWidget(self.plot)
         
